@@ -131,3 +131,9 @@ dmypy.json
 # Custom
 TwistTutorsToken
 TwistTutorsToken.py
+.idea/discord.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/twist-server-bot.iml
+.idea/vcs.xml
+.idea/inspectionProfiles/profiles_settings.xml
