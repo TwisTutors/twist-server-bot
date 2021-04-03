@@ -33,9 +33,7 @@ async def website(ctx):
     website_embed.set_image(url="https://cdn.discordapp.com/attachments/819364098839805993/827520501030715392/twisttutors.png")
     await ctx.send(embed=website_embed)
 
-@client.command()
-async def clear(ctx, amount=1000):
-    await ctx.channel.purge(limit=amount)
+
 
 @client.command(pass_context = True)
 async def clear(ctx, number):
