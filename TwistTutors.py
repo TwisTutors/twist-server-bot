@@ -1,6 +1,7 @@
 import discord, asyncio
 from discord import message
 from discord.ext import commands
+import random
 from TwistTutorsToken import token
 
 client = commands.Bot(command_prefix= ";")
@@ -8,6 +9,7 @@ client = commands.Bot(command_prefix= ";")
 @client.event
 async def on_ready():
     print("Twist Tutors is up and ready!")
+    await client.change_presence(status=discord.Status.idle, activity=discord.Game('Watching over Twist Tutors!'))
 
 @client.command()
 async def web(ctx):
@@ -34,6 +36,10 @@ async def website(ctx):
 @client.command()
 async def clear(ctx, amount=1000):
     await ctx.channel.purge(limit=amount)
+
+
+
+    
 
 
 client.run(token)
