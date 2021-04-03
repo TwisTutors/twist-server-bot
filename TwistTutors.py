@@ -37,6 +37,9 @@ async def website(ctx):
 
 @client.command()
 async def clear(ctx, amount = 5):
-    await ctx.channel.purge(limit=amount)
+    purge_amount = amount + 1
+    await ctx.channel.purge(limit=purge_amount)
+
+
 
 client.run(token)
