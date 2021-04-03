@@ -43,6 +43,8 @@ async def assist(ctx):
     )
     assist_embed.add_field(name="Help", value="`;assist`")
     assist_embed.add_field(name="View our website", value="`;web`")
+    assist_embed.add_field(name="Ask for help", value="`;help`")
+
 
     await ctx.send(embed=assist_embed)
 
@@ -52,6 +54,10 @@ async def clear(ctx, amount = 5):
     purge_amount = amount + 1
     await ctx.channel.purge(limit=purge_amount)
 
+@client.command()
+async def math_help(ctx):
+    msg='{A student needs help}'
+    await ctx.send(msg=math_help)
 
 
 client.run(token)
