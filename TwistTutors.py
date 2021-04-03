@@ -37,13 +37,13 @@ async def website(ctx):
 @client.command()
 async def assist(ctx):
     assist_embed = discord.Embed(
-        title="Here are all the commands our bot has!",
+        title=" 👋 Here are all the commands our bot has!",
         colour=discord.Colour.dark_gold(),
         description=None
     )
-    assist_embed.add_field(name="Help", value="`;assist`")
-    assist_embed.add_field(name="View our website", value="`;web`")
-    assist_embed.add_field(name="Ask for help", value="`;help`")
+    assist_embed.add_field(name="Help", value="`;assist`", inline=True)
+    assist_embed.add_field(name="View our website", value="`;web`", inline=True)
+    assist_embed.add_field(name="Ask for  math help", value="`;math_help`")
 
 
     await ctx.send(embed=assist_embed)
