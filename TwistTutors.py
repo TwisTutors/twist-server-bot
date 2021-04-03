@@ -10,7 +10,7 @@ client = commands.Bot(command_prefix= ";")
 @client.event
 async def on_ready():
     print("Twist Tutors is up and ready!")
-    await client.change_presence(status=discord.Status.idle, activity=discord.Game('Watching over Twist Tutors!'))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game(';assist|Watching over Twist Tutors!'))
 
 @client.command()
 async def web(ctx):
