@@ -1,5 +1,6 @@
 import discord, asyncio
 from discord import message
+from discord import colour
 from discord.ext import commands
 import random
 from TwistTutorsToken import token
@@ -33,6 +34,17 @@ async def website(ctx):
     website_embed.set_image(url="https://cdn.discordapp.com/attachments/819364098839805993/827520501030715392/twisttutors.png")
     await ctx.send(embed=website_embed)
 
+@client.command()
+async def assist(ctx):
+    assist_embed = discord.Embed(
+        title="Here are all the commands our bot has!",
+        colour=discord.Colour.dark_gold(),
+        description=None
+    )
+    assist_embed.add_field(name="Help", value="`;assist`")
+    assist_embed.add_field(name="View our website", value="`;web`")
+
+    await ctx.send(embed=assist_embed)
 
 
 @client.command()
