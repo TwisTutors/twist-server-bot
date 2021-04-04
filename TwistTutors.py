@@ -147,15 +147,15 @@ async def game(ctx, subject):
         def check(m):
             return m.channel == channel
         playing = True
-        A1 = "."
-        A2 = "."
-        A3 = "."
-        B1 = "."
-        B2 = "."
-        B3 = "."
-        C1 = "."
-        C2 = "."
-        C3 = "."
+        A1 = ":white_large_square:"
+        A2 = ":white_large_square:"
+        A3 = ":white_large_square:"
+        B1 = ":white_large_square:"
+        B2 = ":white_large_square:"
+        B3 = ":white_large_square:"
+        C1 = ":white_large_square:"
+        C2 = ":white_large_square:"
+        C3 = ":white_large_square:"
         AIPlay = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
         Move = 1
         int(Move)
@@ -165,7 +165,7 @@ async def game(ctx, subject):
                 colour=discord.Colour.dark_purple(),
                 description=None
             )
-            Tic_Emb.add_field(name="Game:",value= A1 + "  |  " + A2 + "  |  " + A3 + "\n" + B1 + "  |  " + B2 + "  |  " + B3 + "\n" + C1 + "  |  " + C2 + "  |  " + C3, inline=False)
+            Tic_Emb.add_field(name="Game:",value= A1 + "  |  " + A2 + "  |  " + A3 + "\n" + "+—-—--—-+" + "\n" + B1 + "  |  " + B2 + "  |  " + B3 + "\n" + "+—-—--—-+" + "\n" + C1 + "  |  " + C2 + "  |  " + C3, inline=False)
             await ctx.send(embed=Tic_Emb)
             await channel.send("Move")
             await channel.send(Move)
@@ -173,31 +173,31 @@ async def game(ctx, subject):
             Your_Move = await client.wait_for('message', check=check)
             time.sleep(2)
             print(AIPlay)
-            if Your_Move.content == "A1" and A1 == ".":
+            if Your_Move.content == "A1" and A1 == ":white_large_square:":
                 A1 = ":x:"
                 AIPlay.remove("A1")
-            if Your_Move.content == "A2" and A2 == ".":
+            if Your_Move.content == "A2" and A2 == ":white_large_square:":
                 A2 = ":x:"
                 AIPlay.remove("A2")
-            if Your_Move.content == "A3" and A3 == ".":
+            if Your_Move.content == "A3" and A3 == ":white_large_square:":
                 A3 = ":x:"
                 AIPlay.remove("A3")
-            if Your_Move.content == "B1" and B1 == ".":
+            if Your_Move.content == "B1" and B1 == ":white_large_square:":
                 B1 = ":x:"
                 AIPlay.remove("B1")
-            if Your_Move.content == "B2" and B2 == ".":
+            if Your_Move.content == "B2" and B2 == ":white_large_square:":
                 B2 = ":x:"
                 AIPlay.remove("B2")
-            if Your_Move.content == "B3" and B3 == ".":
+            if Your_Move.content == "B3" and B3 == ":white_large_square:":
                 B3 = ":x:"
                 AIPlay.remove("B3")
-            if Your_Move.content == "C1" and C1 == ".":
+            if Your_Move.content == "C1" and C1 == ":white_large_square:":
                 C1 = ":x:"
                 AIPlay.remove("C1")
-            if Your_Move.content == "C2" and C2 == ".":
+            if Your_Move.content == "C2" and C2 == ":white_large_square:":
                 C2 = ":x:"
                 AIPlay.remove("C2")
-            if Your_Move.content == "C3" and C3 == ".":
+            if Your_Move.content == "C3" and C3 == ":white_large_square:":
                 C3 = ":x:"
                 AIPlay.remove("C3")
             if Your_Move.content == "Quit":
@@ -205,31 +205,31 @@ async def game(ctx, subject):
             Move = Move + 1
             print(AIPlay)
             AIPlayedMove = random.choice(AIPlay)
-            if AIPlayedMove == "A1" and A1 == ".":
+            if AIPlayedMove == "A1" and A1 == ":white_large_square:":
                 A1 = ":o:"
                 AIPlay.remove("A1")
-            if AIPlayedMove == "A2" and A2 == ".":
+            if AIPlayedMove == "A2" and A2 == ":white_large_square:":
                 A2 = ":o:"
                 AIPlay.remove("A2")
-            if AIPlayedMove == "A3" and A3 == ".":
+            if AIPlayedMove == "A3" and A3 == ":white_large_square:":
                 A3 = ":o:"
                 AIPlay.remove("A3")
-            if AIPlayedMove == "B1" and B1 == ".":
+            if AIPlayedMove == "B1" and B1 == ":white_large_square:":
                 B1 = ":o:"
                 AIPlay.remove("B1")
-            if AIPlayedMove == "B2" and B2 == ".":
+            if AIPlayedMove == "B2" and B2 == ":white_large_square:":
                 B2 = ":o:"
                 AIPlay.remove("B2")
-            if AIPlayedMove == "B3" and B3 == ".":
+            if AIPlayedMove == "B3" and B3 == ":white_large_square:":
                 B3 = ":o:"
                 AIPlay.remove("B3")
-            if AIPlayedMove == "C1" and C1 == ".":
+            if AIPlayedMove == "C1" and C1 == ":white_large_square:":
                 C1 = ":o:"
                 AIPlay.remove("C1")
-            if AIPlayedMove == "C2" and C2 == ".":
+            if AIPlayedMove == "C2" and C2 == ":white_large_square:":
                 C2 = ":o:"
                 AIPlay.remove("C2")
-            if AIPlayedMove == "C3" and C3 == ".":
+            if AIPlayedMove == "C3" and C3 == ":white_large_square:":
                 C3 = ":o:"
                 AIPlay.remove("C3")
 
