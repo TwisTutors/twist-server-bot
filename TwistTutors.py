@@ -46,7 +46,7 @@ async def assist(ctx):
     )
     assist_embed.add_field(name="Help", value="`;assist`", inline=True)
     assist_embed.add_field(name="View our website", value="`;web`", inline=True)
-    assist_embed.add_field(name="Ask for help", value="`;help (subject)`")
+    assist_embed.add_field(name="Ask for help", value="`;help`")
     await ctx.send(embed=assist_embed)
 
 
@@ -57,7 +57,7 @@ async def delete(ctx, amount = 5):
 
 @client.command()
 async def help(ctx):
-    await ctx.channel.send("What topic would you like help in")
+    await ctx.channel.send(f"What topic would you like help in, {ctx.author.mention}?")
     def check(m):
         return m.author == ctx.author
     helptopic = await client.wait_for('message', check=check)
