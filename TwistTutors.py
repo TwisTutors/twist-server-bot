@@ -50,7 +50,7 @@ async def assist(ctx):
 
 
 @client.command()
-async def clear(ctx, amount = 5):
+async def delete(ctx, amount = 5):
     purge_amount = amount + 1
     await ctx.channel.purge(limit=purge_amount)
 
