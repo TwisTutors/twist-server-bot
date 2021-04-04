@@ -57,7 +57,7 @@ async def delete(ctx, amount = 5):
 
 @client.command()
 async def help(ctx):
-    await ctx.channel.send("What topic would you like help in")
+    await ctx.channel.send(f"What topic would you like help in,{ctx.author.mention}?")
     def check(m):
         return m.author == ctx.author
     helptopic = await client.wait_for('message', check=check)
