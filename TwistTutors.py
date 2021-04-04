@@ -46,8 +46,6 @@ async def assist(ctx):
     assist_embed.add_field(name="Help", value="`;assist`", inline=True)
     assist_embed.add_field(name="View our website", value="`;web`", inline=True)
     assist_embed.add_field(name="Ask for  math help", value="`;math_help`")
-
-
     await ctx.send(embed=assist_embed)
 
 
@@ -81,7 +79,27 @@ async def help(ctx, subject):
     elif subject.lower() == "social studies" or subject.lower() == "ss" or subject.lower() == "history":
         await ctx.send(f"<@&819342428388589568> {ctx.author.mention} needs help with his social studies homework!")
 
-
+@client.command()
+async def game(ctx, subject):
+    if subject.lower() == "tictactoe":
+        channel = ctx.channel
+        def check(m):
+            return m.channel == channel
+        playing = True
+        A1 = "."
+        A2 = "."
+        A3 = "."
+        B1 = "."
+        B2 = "."
+        B3 = "."
+        C1 = "."
+        C2 = "."
+        C3 = "."
+        while(playing):
+            await channel.send("Your Move")
+            Your_Move = await client.wait_for('message', check=check)
+            if Your_Move == "A1" and A1 == ".":
+                A1 = "X"
 
 
 
