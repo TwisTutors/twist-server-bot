@@ -1,4 +1,4 @@
-import discord, asyncio, time
+import discord, asyncio, time, random
 from discord import message
 from discord import colour
 from discord.ext import commands
@@ -86,6 +86,7 @@ async def game(ctx, subject):
         def check(m):
             return m.channel == channel
         playing = True
+        #AIPlay = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
         A1 = "."
         A2 = "."
         A3 = "."
@@ -95,14 +96,83 @@ async def game(ctx, subject):
         C1 = "."
         C2 = "."
         C3 = "."
+        AIPlay = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
+        Move = 1
+        int(Move)
+
         while(playing):
-            await channel.send("Your Move")
+            Tic_Emb = discord.Embed(
+                title="Tic Tac Toe",
+                colour=discord.Colour.dark_purple(),
+                description=None
+            )
+            Tic_Emb.add_field(name="Game:",value= A1 + "  |  " + A2 + "  |  " + A3 + "\n" + B1 + "  |  " + B2 + "  |  " + B3 + "\n" + C1 + "  |  " + C2 + "  |  " + C3, inline=False)
+            await ctx.send(embed=Tic_Emb)
+            await channel.send("Move")
+            await channel.send(Move)
+            time.sleep(2)
             Your_Move = await client.wait_for('message', check=check)
-            time.sleep(1)
-            print(Your_Move)
-            if Your_Move.content == "A1":
+            time.sleep(2)
+            print(AIPlay)
+            if Your_Move.content == "A1" and A1 == ".":
                 A1 = "X"
-                print(A1)
+                AIPlay.remove("A1")
+            if Your_Move.content == "A2" and A2 == ".":
+                A2 = "X"
+                AIPlay.remove("A2")
+            if Your_Move.content == "A3" and A3 == ".":
+                A3 = "X"
+                AIPlay.remove("A3")
+            if Your_Move.content == "B1" and B1 == ".":
+                B1 = "X"
+                AIPlay.remove("B1")
+            if Your_Move.content == "B2" and B2 == ".":
+                B2 = "X"
+                AIPlay.remove("B2")
+            if Your_Move.content == "B3" and B3 == ".":
+                B3 = "X"
+                AIPlay.remove("B3")
+            if Your_Move.content == "C1" and C1 == ".":
+                C1 = "X"
+                AIPlay.remove("C1")
+            if Your_Move.content == "C2" and C2 == ".":
+                C2 = "X"
+                AIPlay.remove("C2")
+            if Your_Move.content == "C3" and C3 == ".":
+                C3 = "X"
+                AIPlay.remove("C3")
+            if Your_Move.content == "Quit":
+                break
+            Move = Move + 1
+            print(AIPlay)
+            AIPlayedMove = random.choice(AIPlay)
+            if AIPlayedMove == "A1" and A1 == ".":
+                A1 = "O"
+                AIPlay.remove("A1")
+            if AIPlayedMove == "A2" and A2 == ".":
+                A2 = "O"
+                AIPlay.remove("A2")
+            if AIPlayedMove == "A3" and A3 == ".":
+                A3 = "O"
+                AIPlay.remove("A3")
+            if AIPlayedMove == "B1" and B1 == ".":
+                B1 = "O"
+                AIPlay.remove("B1")
+            if AIPlayedMove == "B2" and B2 == ".":
+                B2 = "O"
+                AIPlay.remove("B2")
+            if AIPlayedMove == "B3" and B3 == ".":
+                B3 = "O"
+                AIPlay.remove("B3")
+            if AIPlayedMove == "C1" and C1 == ".":
+                C1 = "O"
+                AIPlay.remove("C1")
+            if AIPlayedMove == "C2" and C2 == ".":
+                C2 = "O"
+                AIPlay.remove("C2")
+            if AIPlayedMove == "C3" and C3 == ".":
+                C3 = "O"
+                AIPlay.remove("C3")
 
 
 
