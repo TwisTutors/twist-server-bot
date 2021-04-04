@@ -59,7 +59,7 @@ async def clear(ctx, amount = 5):
 @client.command()
 async def help(ctx, subject):
     if subject.lower() == "math" or subject.lower() == "m":
-        await ctx.send(f"@&815739473035919420 {ctx.author} needs help with his math homework!")
+        await ctx.send(f"@815739473035919420 {ctx.author} needs help with his math homework!")
     elif subject.lower() == "ela" or subject.lower() == "e":
         await ctx.send(f"@ELA Tutor {ctx.author} needs help with his ELA homework!")
     elif subject.lower() == "science" or subject.lower() == "sci" or subject.lower() == "s":
