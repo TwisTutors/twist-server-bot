@@ -45,7 +45,7 @@ async def assist(ctx):
     )
     assist_embed.add_field(name="Help", value="`;assist`", inline=True)
     assist_embed.add_field(name="View our website", value="`;web`", inline=True)
-    assist_embed.add_field(name="Ask for math help", value="`;help math`")
+    assist_embed.add_field(name="Ask for  help", value="`;help (subject)`")
     await ctx.send(embed=assist_embed)
 
 
@@ -57,11 +57,11 @@ async def clear(ctx, amount = 5):
 @client.command()
 async def help(ctx, subject):
     if subject.lower() == "math" or subject.lower() == "m":
-        await ctx.send(f"<@&815739473035919420> A student, {ctx.author.mention} needs help with their math homework!")
+        await ctx.send(f"<@&815739473035919420> A student, {ctx.author.mention} needs help with their math work!")
     elif subject.lower() == "ela" or subject.lower() == "e":
-        await ctx.send(f"<@&815785109473984513> {ctx.author.mention} needs help with his ELA homework!")
+        await ctx.send(f"<@&815785109473984513> A student, {ctx.author.mention} needs help with their ELA work!")
     elif subject.lower() == "science" or subject.lower() == "sci" or subject.lower() == "s":
-        await ctx.send(f"<@&815786846629265429> {ctx.author.mention} needs help with his math homework!")
+        await ctx.send(f"<@&815786846629265429> A student, {ctx.author.mention} needs help with their math work!")
     elif subject.lower() == "language" or subject.lower() == "lang" or subject.lower() == "l":
         channel = ctx.channel
         await ctx.send(f"{ctx.author.mention}, what language do you need help in?")
@@ -77,7 +77,7 @@ async def help(ctx, subject):
         else:
             await channel.send("Sorry that is not a language we support yet, but feel free to ask one of the staff members to add it!")
     elif subject.lower() == "social studies" or subject.lower() == "ss" or subject.lower() == "history":
-        await ctx.send(f"<@&819342428388589568> {ctx.author.mention} needs help with his social studies homework!")
+        await ctx.send(f"<@&819342428388589568> A student, {ctx.author.mention} needs help with their social studies homework!")
 
 @client.command()
 async def game(ctx, subject):
