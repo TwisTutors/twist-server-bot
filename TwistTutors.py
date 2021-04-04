@@ -46,9 +46,7 @@ async def assist(ctx):
     )
     assist_embed.add_field(name="Help", value="`;assist`", inline=True)
     assist_embed.add_field(name="View our website", value="`;web`", inline=True)
-    assist_embed.add_field(name="Ask for help", value="`;help`")
-    assist_embed.add_field(name="TicTacToe", value="`;game tictactoe`")
-
+    assist_embed.add_field(name="Ask for help", value="`;help (subject)`")
     await ctx.send(embed=assist_embed)
 
 
@@ -58,12 +56,8 @@ async def delete(ctx, amount = 5):
     await ctx.channel.purge(limit=purge_amount)
 
 @client.command()
-async def help(ctx):
-    await ctx.channel.send(f"What topic would you like help in,{ctx.author.mention}?")
-    def check(m):
-        return m.author == ctx.author
-    helptopic = await client.wait_for('message', check=check)
-    if helptopic.content.lower() == "math" or helptopic.content.lower() == "m":
+async def help(ctx, subject):
+    if subject.lower() == "math" or subject.lower() == "m":
         await ctx.send(f"{ctx.author.mention}, specifically what type of math do you need help with?")
 
         def check(s):
@@ -109,16 +103,16 @@ async def help(ctx):
 
 
 
-    elif helptopic.content.lower() == "ela" or helptopic.content.lower() == "e":
+    elif subject.lower() == "ela" or subject.lower() == "e":
         await ctx.send(f"<@&815785109473984513> A student, {ctx.author.mention} needs help with their ELA work!")
-    elif helptopic.content.lower() == "science" or helptopic.content.lower() == "sci" or helptopic.content.lower() == "s":
+    elif subject.lower() == "science" or subject.lower() == "sci" or subject.lower() == "s":
         await ctx.send(f"<@&815786846629265429> A student, {ctx.author.mention} needs help with their math work!")
 
 
 
 
-    elif helptopic.content.lower() == "language" or helptopic.content.lower() == "lang" or helptopic.content.lower() == "l":
-        await ctx.send(f"{ctx.author.mention}, what language do you need help in?", delete_after=7.5)
+    elif subject.lower() == "language" or subject.lower() == "lang" or subject.lower() == "l":
+        await ctx.send(f"{ctx.author.mention}, what language do you need help in?")
 
         def check(m):
             return m.author == ctx.author
@@ -126,22 +120,23 @@ async def help(ctx):
         language_wait_for = await client.wait_for('message', check=check)
         if language_wait_for.content.lower() == "chinese":
             channel = client.get_channel(815742065526702131)
-            await channel.send(f"<@&828284238847279176> A student, {ctx.author.mention} needs help with chinese homework!")
+            await channel.send(f"<@&828284238847279176> A student, {ctx.author.mention} needs help with chinese homework!", delete_after=10.0)
 
 
         elif language_wait_for.content.lower() == "spanish":
             channel = client.get_channel(815742051370401803)
-            await channel.send(f"<@&828285201645830205> A student, {ctx.author.mention} needs help with spanish homework!")
+            await channel.send(f"<@&828285201645830205> A student, {ctx.author.mention} needs help with spanish homework!", delete_after=10.0)
 
         elif language_wait_for.content.lower() == "french":
             channel = client.get_channel(815742120928608316)
-            await channel.send(f"<@&828308062786945065> A student, {ctx.author.mention} needs help with french homework!")
+            await channel.send(f"<@&828308062786945065> A student, {ctx.author.mention} needs help with french homework!", delete_after=10.0)
         #finished up to french
 
 
-    elif helptopic.content.lower() == "social studies" or helptopic.content.lower() == "ss" or helptopic.content.lower() == "history":
-        channel = client.get_channel(815740451151413248)
-        await channel.send(f"<@&819342428388589568> A student, {ctx.author.mention} needs help with their social studies homework!")
+    elif subject.lower() == "social studies" or subject.lower() == "ss" or subject.lower() == "history":
+        await ctx.send(f"<@&819342428388589568> A student, {ctx.author.mention} needs help with their social studies homework!")
+
+
 
 @client.command()
 async def game(ctx, subject):
@@ -205,7 +200,7 @@ async def game(ctx, subject):
                 AIPlay.remove("C3")
             elif Your_Move.content == "Quit":
                 break
-            else: 
+            else:
                 continue
 
             Move = Move + 1
@@ -238,7 +233,6 @@ async def game(ctx, subject):
             elif AIPlayedMove == "C3" and C3 == ":white_large_square:":
                 C3 = ":o:"
                 AIPlay.remove("C3")
-
 
 
 
