@@ -106,20 +106,28 @@ async def help(ctx, subject):
         await ctx.send(f"<@&815785109473984513> A student, {ctx.author.mention} needs help with their ELA work!")
     elif subject.lower() == "science" or subject.lower() == "sci" or subject.lower() == "s":
         await ctx.send(f"<@&815786846629265429> A student, {ctx.author.mention} needs help with their math work!")
+
+
+
+
     elif subject.lower() == "language" or subject.lower() == "lang" or subject.lower() == "l":
-        channel = ctx.channel
         await ctx.send(f"{ctx.author.mention}, what language do you need help in?")
 
         def check(m):
-            return m.channel == channel and m.author == ctx.author
+            return m.author == ctx.author
 
         language_wait_for = await client.wait_for('message', check=check)
-        if language_wait_for.content == "chinese":
+        if language_wait_for.content.lower() == "chinese":
+            channel = client.get_channel(815742065526702131)
             await channel.send(f"<@&828284238847279176> A student, {ctx.author.mention} needs help with chinese homework!")
-        elif language_wait_for.content == "spanish":
+        elif language_wait_for.content.lower() == "spanish":
+            channel = client.get_channel(815742051370401803)
             await channel.send(f"<@&828285201645830205> A student, {ctx.author.mention} needs help with spanish homework!")
-        else:
-            await channel.send("Sorry that is not a language we support yet, but feel free to ask one of the staff members to add it!")
+        elif language_wait_for.content.lower() == "french":
+            channel = client.get_channel(815742120928608316)
+            await channel.send(f"<@&828308062786945065> A student, {ctx.author.mention} needs help with spanish homework!")
+
+
     elif subject.lower() == "social studies" or subject.lower() == "ss" or subject.lower() == "history":
         await ctx.send(f"<@&819342428388589568> A student, {ctx.author.mention} needs help with their social studies homework!")
 
