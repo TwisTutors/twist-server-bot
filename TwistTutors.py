@@ -57,7 +57,51 @@ async def clear(ctx, amount = 5):
 @client.command()
 async def help(ctx, subject):
     if subject.lower() == "math" or subject.lower() == "m":
-        await ctx.send(f"<@&815739473035919420> A student, {ctx.author.mention} needs help with their math work!")
+        await ctx.send(f"{ctx.author.mention}, specifically what type of math do you need help with?")
+
+        def check(s):
+            return s.author == ctx.author
+
+        specific_math = await client.wait_for('message', check=check)
+        if specific_math.content.lower() == "geo" or specific_math.content.lower() == "geometry":
+            channel = client.get_channel(815741183078694932)
+            await channel.send(f"<@&815739473035919420> A student, {ctx.author.mention} needs help with their geometry work!")
+
+        if specific_math.content.lower() == "algebra 1" or specific_math.content.lower() == "alg 1" or specific_math.content.lower() == "alg1" or specific_math.content.lower() == "algebra1":
+            channel = client.get_channel(815741141504360450)
+            await channel.send(f"<@&815739473035919420> A student, {ctx.author.mention} needs help with their algebra 1 work!")
+
+        if specific_math.content.lower() == "basic math" or specific_math.content.lower() == "basic" or specific_math.content.lower() == "basicmath":
+            channel = client.get_channel(815741088522174504)
+            await channel.send(f"<@&815739473035919420> A student, {ctx.author.mention} needs help with their basic math work!")
+
+        if specific_math.content.lower() == "pre-algebra" or specific_math.content.lower() == "prealg" or specific_math.content.lower() == "prealgebra":
+            channel = client.get_channel(815741115076575253)
+            await channel.send(f"<@&815739473035919420> A student, {ctx.author.mention} needs help with their pre-algebra work!")
+
+        if specific_math.content.lower() == "precalculus" or specific_math.content.lower() == "precalc" or specific_math.content.lower() == "pre calc" or specific_math.content.lower() == "pre calculus":
+            channel = client.get_channel(815741321867689995)
+            await channel.send(f"<@&815739473035919420> A student, {ctx.author.mention} needs help with their pre-calculus work!")
+
+        if specific_math.content.lower() == "alg2" or specific_math.content.lower() == "algebra2" or specific_math.content.lower() == "alg 2" or specific_math.content.lower() == "algebra 2":
+            channel = client.get_channel(815741205547188234)
+            await channel.send(f"<@&815739473035919420> A student, {ctx.author.mention} needs help with their algebra-2 work!")
+
+        if specific_math.content.lower() == "linear alg" or specific_math.content.lower() == "linear algebra" or specific_math.content.lower() == "linearalgebra":
+            channel = client.get_channel(815741485705592844)
+            await channel.send(f"<@&815739473035919420> A student, {ctx.author.mention} needs help with their linear algebra work!")
+
+        if specific_math.content.lower() == "stats" or specific_math.content.lower() == "statistics" or specific_math.content.lower() == "stat":
+            channel = client.get_channel(816515786654089226)
+            await channel.send(f"<@&815739473035919420> A student, {ctx.author.mention} needs help with their linear statistics work!")
+
+
+
+
+
+
+
+
     elif subject.lower() == "ela" or subject.lower() == "e":
         await ctx.send(f"<@&815785109473984513> A student, {ctx.author.mention} needs help with their ELA work!")
     elif subject.lower() == "science" or subject.lower() == "sci" or subject.lower() == "s":
