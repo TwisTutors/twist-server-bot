@@ -12,7 +12,7 @@ client.remove_command('help')
 @client.event
 async def on_ready():
     print("Twist Tutors is up and ready!")
-    await client.change_presence(status=discord.Status.online, activity=discord.Game('At your service!'))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game(';assist|At your service!'))
 
 @client.command()
 async def web(ctx):
@@ -45,7 +45,7 @@ async def assist(ctx):
     )
     assist_embed.add_field(name="Help", value="`;assist`", inline=True)
     assist_embed.add_field(name="View our website", value="`;web`", inline=True)
-    assist_embed.add_field(name="Ask for  math help", value="`;math_help`")
+    assist_embed.add_field(name="Ask for math help", value="`;help math`")
     await ctx.send(embed=assist_embed)
 
 
@@ -57,7 +57,7 @@ async def clear(ctx, amount = 5):
 @client.command()
 async def help(ctx, subject):
     if subject.lower() == "math" or subject.lower() == "m":
-        await ctx.send(f"<@&815739473035919420> {ctx.author.mention} needs help with his math homework!")
+        await ctx.send(f"<@&815739473035919420> A student, {ctx.author.mention} needs help with their math homework!")
     elif subject.lower() == "ela" or subject.lower() == "e":
         await ctx.send(f"<@&815785109473984513> {ctx.author.mention} needs help with his ELA homework!")
     elif subject.lower() == "science" or subject.lower() == "sci" or subject.lower() == "s":
