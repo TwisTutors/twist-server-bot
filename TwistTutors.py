@@ -58,8 +58,12 @@ async def delete(ctx, amount = 5):
     await ctx.channel.purge(limit=purge_amount)
 
 @client.command()
-async def help(ctx, subject):
-    if subject.lower() == "math" or subject.lower() == "m":
+async def help(ctx):
+    await ctx.channel.send(f"What topic would you like help in, {ctx.author.mention}?")
+    def check(m):
+        return m.author == ctx.author
+    helptopic = await client.wait_for('message', check=check)
+    if helptopic.content.lower() == "math" or helptopic.content.lower() == "m":
         await ctx.send(f"{ctx.author.mention}, specifically what type of math do you need help with?")
 
         def check(s):
@@ -105,16 +109,16 @@ async def help(ctx, subject):
 
 
 
-    elif subject.lower() == "ela" or subject.lower() == "e":
+    elif helptopic.content.lower() == "ela" or helptopic.content.lower() == "e":
         await ctx.send(f"<@&815785109473984513> A student, {ctx.author.mention} needs help with their ELA work!")
-    elif subject.lower() == "science" or subject.lower() == "sci" or subject.lower() == "s":
+    elif helptopic.content.lower() == "science" or helptopic.content.lower() == "sci" or helptopic.content.lower() == "s":
         await ctx.send(f"<@&815786846629265429> A student, {ctx.author.mention} needs help with their math work!")
 
 
 
 
-    elif subject.lower() == "language" or subject.lower() == "lang" or subject.lower() == "l":
-        await ctx.send(f"{ctx.author.mention}, what language do you need help in?")
+    elif helptopic.content.lower() == "language" or helptopic.content.lower() == "lang" or helptopic.content.lower() == "l":
+        await ctx.send(f"{ctx.author.mention}, what language do you need help in?", delete_after=7.5)
 
         def check(m):
             return m.author == ctx.author
@@ -135,10 +139,8 @@ async def help(ctx, subject):
         #finished up to french
 
 
-    elif subject.lower() == "social studies" or subject.lower() == "ss" or subject.lower() == "history":
+    elif helptopic.content.lower() == "social studies" or helptopic.content.lower() == "ss" or helptopic.content.lower() == "history":
         await ctx.send(f"<@&819342428388589568> A student, {ctx.author.mention} needs help with their social studies homework!")
-
-
 
 @client.command()
 async def game(ctx, subject):
