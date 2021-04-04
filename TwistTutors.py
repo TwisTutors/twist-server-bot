@@ -67,7 +67,7 @@ async def help(ctx, subject):
         await ctx.send(f"{ctx.author.mention}, what language do you need help in?")
 
         def check(m):
-            return m.channel == channel
+            return m.channel == channel and m.author == ctx.author
 
         language_wait_for = await client.wait_for('message', check=check)
         if language_wait_for.content == "chinese":
