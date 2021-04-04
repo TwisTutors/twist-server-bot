@@ -7,6 +7,8 @@ from TwistTutorsToken import token
 
 client = commands.Bot(command_prefix= ";")
 
+client.remove_command('help')
+
 @client.event
 async def on_ready():
     print("Twist Tutors is up and ready!")
