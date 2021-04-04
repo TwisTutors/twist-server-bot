@@ -55,9 +55,34 @@ async def clear(ctx, amount = 5):
     await ctx.channel.purge(limit=purge_amount)
 
 @client.command()
-async def math_help(ctx):
-    msg='{A student needs help}'
-    await ctx.send(msg=math_help)
+async def help(ctx, subject):
+    if subject.lower() == "math" or subject.lower() == "m":
+        await ctx.send(f"@Math Tutor {ctx.author} needs help with his math homework!")
+    elif subject.lower() == "ela" or subject.lower() == "e":
+        await ctx.send(f"@ELA Tutor {ctx.author} needs help with his ELA homework!")
+    elif subject.lower() == "science" or subject.lower() == "sci" or subject.lower() == "s":
+        await ctx.send(f"@Science Tutor {ctx.author} needs help with his math homework!")
+    elif subject.lower() == "language" or subject.lower() == "lang" or subject.lower() == "l":
+        channel = ctx.channel
+        await ctx.send(f"{ctx.author.mention}, what language do you need help in?")
+
+        def check(m):
+            return m.channel == channel
+
+        language_wait_for = await client.wait_for('message', check=check)
+        if language_wait_for == "chinese":
+            await ctx.send(f"@Chinese Tutor {ctx.author} needs help with chinese homework!")
+        if language_wait_for == "spanish":
+            await ctx.send(f"@Spanish Tutor {ctx.author} needs help with spanish homework!")
+        else:
+            await ctx.send("Sorry that is not a language we support yet, but feel free to ask one of the staff members to add it!")
+    elif subject.lower() == "social studies" or subject.lower() == "ss" or subject.lower() == "history":
+        await ctx.send(f"@History Tutor {ctx.author} needs help with his social studies homework!")
+
+
+
+
+
 
 
 
