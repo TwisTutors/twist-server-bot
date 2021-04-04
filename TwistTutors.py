@@ -1,5 +1,6 @@
 import discord, asyncio
 from discord import message
+from discord import colour
 from discord.ext import commands
 import random
 from TwistTutorsToken import token
@@ -9,7 +10,7 @@ client = commands.Bot(command_prefix= ";")
 @client.event
 async def on_ready():
     print("Twist Tutors is up and ready!")
-    await client.change_presence(status=discord.Status.idle, activity=discord.Game('Watching over Twist Tutors!'))
+    await client.change_presence(status=discord.Status.online, activity=discord.Game(';assist|Watching over Twist Tutors!'))
 
 @client.command()
 async def web(ctx):
@@ -33,6 +34,19 @@ async def website(ctx):
     website_embed.set_image(url="https://cdn.discordapp.com/attachments/819364098839805993/827520501030715392/twisttutors.png")
     await ctx.send(embed=website_embed)
 
+@client.command()
+async def assist(ctx):
+    assist_embed = discord.Embed(
+        title=" 👋 Here are all the commands our bot has!",
+        colour=discord.Colour.dark_gold(),
+        description=None
+    )
+    assist_embed.add_field(name="Help", value="`;assist`", inline=True)
+    assist_embed.add_field(name="View our website", value="`;web`", inline=True)
+    assist_embed.add_field(name="Ask for  math help", value="`;math_help`")
+
+
+    await ctx.send(embed=assist_embed)
 
 
 @client.command()
@@ -40,6 +54,10 @@ async def clear(ctx, amount = 5):
     purge_amount = amount + 1
     await ctx.channel.purge(limit=purge_amount)
 
+@client.command()
+async def math_help(ctx):
+    msg='{A student needs help}'
+    await ctx.send(msg=math_help)
 
 
 
