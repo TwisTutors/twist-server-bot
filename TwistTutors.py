@@ -1,4 +1,4 @@
-import discord, asyncio
+import discord, asyncio, time
 from discord import message
 from discord import colour
 from discord.ext import commands
@@ -70,9 +70,9 @@ async def help(ctx, subject):
             return m.channel == channel
 
         language_wait_for = await client.wait_for('message', check=check)
-        if language_wait_for == "chinese":
+        if language_wait_for.content == "chinese":
             await channel.send(f"@Chinese Tutor {ctx.author} needs help with chinese homework!")
-        elif language_wait_for == "spanish":
+        elif language_wait_for.content == "spanish":
             await channel.send(f"@Spanish Tutor {ctx.author} needs help with spanish homework!")
         else:
             await channel.send("Sorry that is not a language we support yet, but feel free to ask one of the staff members to add it!")
@@ -98,8 +98,11 @@ async def game(ctx, subject):
         while(playing):
             await channel.send("Your Move")
             Your_Move = await client.wait_for('message', check=check)
-            if Your_Move == "A1" and A1 == ".":
+            time.sleep(1)
+            print(Your_Move)
+            if Your_Move.content == "A1":
                 A1 = "X"
+                print(A1)
 
 
 
