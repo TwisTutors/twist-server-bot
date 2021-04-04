@@ -112,7 +112,7 @@ async def help(ctx, subject):
 
 
     elif subject.lower() == "language" or subject.lower() == "lang" or subject.lower() == "l":
-        await ctx.send(f"{ctx.author.mention}, what language do you need help in?")
+        await ctx.send(f"{ctx.author.mention}, what language do you need help in?", delete_after=7.5)
 
         def check(m):
             return m.author == ctx.author
