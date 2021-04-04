@@ -74,7 +74,7 @@ async def help(ctx, subject):
         language_wait_for = await client.wait_for('message', check=check)
         if language_wait_for == "chinese":
             await ctx.send(f"@Chinese Tutor {ctx.author} needs help with chinese homework!")
-        if language_wait_for == "spanish":
+        elif language_wait_for == "spanish":
             await ctx.send(f"@Spanish Tutor {ctx.author} needs help with spanish homework!")
         else:
             await ctx.send("Sorry that is not a language we support yet, but feel free to ask one of the staff members to add it!")
