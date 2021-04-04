@@ -46,7 +46,9 @@ async def assist(ctx):
     )
     assist_embed.add_field(name="Help", value="`;assist`", inline=True)
     assist_embed.add_field(name="View our website", value="`;web`", inline=True)
-    assist_embed.add_field(name="Ask for help", value="`;help `")
+    assist_embed.add_field(name="Ask for help", value="`;help`")
+    assist_embed.add_field(name="TicTacToe", value="`;game tictactoe`")
+
     await ctx.send(embed=assist_embed)
 
 
@@ -138,7 +140,8 @@ async def help(ctx):
 
 
     elif helptopic.content.lower() == "social studies" or helptopic.content.lower() == "ss" or helptopic.content.lower() == "history":
-        await ctx.send(f"<@&819342428388589568> A student, {ctx.author.mention} needs help with their social studies homework!")
+        channel = client.get_channel(815740451151413248)
+        await channel.send(f"<@&819342428388589568> A student, {ctx.author.mention} needs help with their social studies homework!")
 
 @client.command()
 async def game(ctx, subject):
