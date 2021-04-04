@@ -129,7 +129,7 @@ async def help(ctx, subject):
 
         elif language_wait_for.content.lower() == "french":
             channel = client.get_channel(815742120928608316)
-            await channel.send(f"<@&828308062786945065> A student, {ctx.author.mention} needs help with french homework!")
+            await channel.send(f"<@&828308062786945065> A student, {ctx.author.mention} needs help with french homework!", delete_after=5.0)
         #finished up to french
 
 
