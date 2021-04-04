@@ -121,6 +121,8 @@ async def help(ctx, subject):
         if language_wait_for.content.lower() == "chinese":
             channel = client.get_channel(815742065526702131)
             await channel.send(f"<@&828284238847279176> A student, {ctx.author.mention} needs help with chinese homework!")
+            await asyncio.sleep(5)
+            await ctx.delete()
 
         elif language_wait_for.content.lower() == "spanish":
             channel = client.get_channel(815742051370401803)
