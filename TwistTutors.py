@@ -86,7 +86,6 @@ async def game(ctx, subject):
         def check(m):
             return m.channel == channel
         playing = True
-        #AIPlay = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
         A1 = "."
         A2 = "."
         A3 = "."
@@ -99,7 +98,6 @@ async def game(ctx, subject):
         AIPlay = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"]
         Move = 1
         int(Move)
-
         while(playing):
             Tic_Emb = discord.Embed(
                 title="Tic Tac Toe",
