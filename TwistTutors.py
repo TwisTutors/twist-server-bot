@@ -46,7 +46,7 @@ async def assist(ctx):
     )
     assist_embed.add_field(name="Help", value="`;assist`", inline=True)
     assist_embed.add_field(name="View our website", value="`;web`", inline=True)
-    assist_embed.add_field(name="Ask for help", value="`;help (subject)`")
+    assist_embed.add_field(name="Ask for help", value="`;help `")
     await ctx.send(embed=assist_embed)
 
 
