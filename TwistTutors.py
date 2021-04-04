@@ -4,6 +4,7 @@ from discord import colour
 from discord.ext import commands
 import random
 from TwistTutorsToken import token
+import asyncio
 
 client = commands.Bot(command_prefix= ";")
 
@@ -120,9 +121,11 @@ async def help(ctx, subject):
         if language_wait_for.content.lower() == "chinese":
             channel = client.get_channel(815742065526702131)
             await channel.send(f"<@&828284238847279176> A student, {ctx.author.mention} needs help with chinese homework!")
+
         elif language_wait_for.content.lower() == "spanish":
             channel = client.get_channel(815742051370401803)
             await channel.send(f"<@&828285201645830205> A student, {ctx.author.mention} needs help with spanish homework!")
+
         elif language_wait_for.content.lower() == "french":
             channel = client.get_channel(815742120928608316)
             await channel.send(f"<@&828308062786945065> A student, {ctx.author.mention} needs help with french homework!")
