@@ -163,91 +163,94 @@ async def game(ctx, subject):
         Move = 1
         int(Move)
         while(playing):
-            Tic_Emb = discord.Embed(
-                title="Tic Tac Toe",
-                colour=discord.Colour.dark_purple(),
-                description=None
-            )
-            Tic_Emb.add_field(name="Game:",value= A1 + "  |  " + A2 + "  |  " + A3 + "\n" + "+—-—--—-+" + "\n" + B1 + "  |  " + B2 + "  |  " + B3 + "\n" + "+—-—--—-+" + "\n" + C1 + "  |  " + C2 + "  |  " + C3, inline=False)
-            await ctx.send(embed=Tic_Emb)
-            await channel.send("Move")
-            await channel.send(Move)
-            time.sleep(2)
-            Your_Move = await client.wait_for('message', check=check)
-            time.sleep(2)
-            print(AIPlay)
-            if Your_Move.content == "A1" and A1 == ":white_large_square:":
-                A1 = ":x:"
-                AIPlay.remove("A1")
-            elif Your_Move.content == "A2" and A2 == ":white_large_square:":
-                A2 = ":x:"
-                AIPlay.remove("A2")
-            elif Your_Move.content == "A3" and A3 == ":white_large_square:":
-                A3 = ":x:"
-                AIPlay.remove("A3")
-            elif Your_Move.content == "B1" and B1 == ":white_large_square:":
-                B1 = ":x:"
-                AIPlay.remove("B1")
-            elif Your_Move.content == "B2" and B2 == ":white_large_square:":
-                B2 = ":x:"
-                AIPlay.remove("B2")
-            elif Your_Move.content == "B3" and B3 == ":white_large_square:":
-                B3 = ":x:"
-                AIPlay.remove("B3")
-            elif Your_Move.content == "C1" and C1 == ":white_large_square:":
-                C1 = ":x:"
-                AIPlay.remove("C1")
-            elif Your_Move.content == "C2" and C2 == ":white_large_square:":
-                C2 = ":x:"
-                AIPlay.remove("C2")
-            elif Your_Move.content == "C3" and C3 == ":white_large_square:":
-                C3 = ":x:"
-                AIPlay.remove("C3")
-            elif Your_Move.content == "Quit":
+            try:
+                Tic_Emb = discord.Embed(
+                    title="Tic Tac Toe",
+                    colour=discord.Colour.dark_purple(),
+                    description=None
+                )
+                Tic_Emb.add_field(name="Game:",value= A1 + "  |  " + A2 + "  |  " + A3 + "\n" + "+—-—--—-+" + "\n" + B1 + "  |  " + B2 + "  |  " + B3 + "\n" + "+—-—--—-+" + "\n" + C1 + "  |  " + C2 + "  |  " + C3, inline=False)
+                await ctx.send(embed=Tic_Emb)
+                await channel.send("Move")
+                await channel.send(Move)
+                time.sleep(2)
+                Your_Move = await client.wait_for('message', check=check)
+                time.sleep(2)
+                print(AIPlay)
+                if Your_Move.content == "A1" and A1 == ":white_large_square:":
+                    A1 = ":x:"
+                    AIPlay.remove("A1")
+                elif Your_Move.content == "A2" and A2 == ":white_large_square:":
+                    A2 = ":x:"
+                    AIPlay.remove("A2")
+                elif Your_Move.content == "A3" and A3 == ":white_large_square:":
+                    A3 = ":x:"
+                    AIPlay.remove("A3")
+                elif Your_Move.content == "B1" and B1 == ":white_large_square:":
+                    B1 = ":x:"
+                    AIPlay.remove("B1")
+                elif Your_Move.content == "B2" and B2 == ":white_large_square:":
+                    B2 = ":x:"
+                    AIPlay.remove("B2")
+                elif Your_Move.content == "B3" and B3 == ":white_large_square:":
+                    B3 = ":x:"
+                    AIPlay.remove("B3")
+                elif Your_Move.content == "C1" and C1 == ":white_large_square:":
+                    C1 = ":x:"
+                    AIPlay.remove("C1")
+                elif Your_Move.content == "C2" and C2 == ":white_large_square:":
+                    C2 = ":x:"
+                    AIPlay.remove("C2")
+                elif Your_Move.content == "C3" and C3 == ":white_large_square:":
+                    C3 = ":x:"
+                    AIPlay.remove("C3")
+                elif Your_Move.content == "Quit":
+                    break
+                else: 
+                    continue
+
+                if A1 == ":x:" and A2 == ":x:" and A3 == ":x:" or B1 == ":x:" and B2 == ":x:" and B3 == ":x:" or C1 == ":x:" and C2 == ":x:" and C3 == ":x:" or A1 == ":x:" and B1 == ":x:" and C1 == ":x:" or A2 == ":x:" and B2 == ":x:" and C2 == ":x:" or A3 == ":x:" and B3 == ":x:" and C3 == ":x:" or A1 == ":x:" and B2 == ":x:" and C3 == ":x:" or A3 == ":x:" and B2 == ":x:" and C1 == ":x:" :
+                    await channel.send("You Won")
+                    break
+
+                Move = Move + 1
+                print(AIPlay)
+                AIPlayedMove = random.choice(AIPlay)
+                if AIPlayedMove == "A1" and A1 == ":white_large_square:":
+                    A1 = ":o:"
+                    AIPlay.remove("A1")
+                elif AIPlayedMove == "A2" and A2 == ":white_large_square:":
+                    A2 = ":o:"
+                    AIPlay.remove("A2")
+                elif AIPlayedMove == "A3" and A3 == ":white_large_square:":
+                    A3 = ":o:"
+                    AIPlay.remove("A3")
+                elif AIPlayedMove == "B1" and B1 == ":white_large_square:":
+                    B1 = ":o:"
+                    AIPlay.remove("B1")
+                elif AIPlayedMove == "B2" and B2 == ":white_large_square:":
+                    B2 = ":o:"
+                    AIPlay.remove("B2")
+                elif AIPlayedMove == "B3" and B3 == ":white_large_square:":
+                    B3 = ":o:"
+                    AIPlay.remove("B3")
+                elif AIPlayedMove == "C1" and C1 == ":white_large_square:":
+                    C1 = ":o:"
+                    AIPlay.remove("C1")
+                elif AIPlayedMove == "C2" and C2 == ":white_large_square:":
+                    C2 = ":o:"
+                    AIPlay.remove("C2")
+                elif AIPlayedMove == "C3" and C3 == ":white_large_square:":
+                    C3 = ":o:"
+                    AIPlay.remove("C3")
+
+                if A1 == ":o:" and A2 == ":o:" and A3 == ":o:" or B1 == ":o:" and B2 == ":o:" and B3 == ":o:" or C1 == ":o:" and C2 == ":o:" and C3 == ":o:" or A1 == ":o:" and B1 == ":o:" and C1 == ":o:" or A2 == ":o:" and B2 == ":o:" and C2 == ":o:" or A3 == ":o:" and B3 == ":o:" and C3 == ":o:" or A1 == ":o:" and B2 == ":o:" and C3 == ":o:" or A3 == ":o:" and B2 == ":o:" and C1 == ":o:" :
+                    await channel.send("You Lost")
+                    break
+
+            except:
+                await channel.send("It was a tie")
                 break
-            else: 
-                continue
-
-            if A1 == ":x:" and A2 == ":x:" and A3 == ":x:" or B1 == ":x:" and B2 == ":x:" and B3 == ":x:" or C1 == ":x:" and C2 == ":x:" and C3 == ":x:" or A1 == ":x:" and B1 == ":x:" and C1 == ":x:" or A2 == ":x:" and B2 == ":x:" and C2 == ":x:" or A3 == ":x:" and B3 == ":x:" and C3 == ":x:" or A1 == ":x:" and B2 == ":x:" and C3 == ":x:" or A3 == ":x:" and B2 == ":x:" and C1 == ":x:" :
-                await channel.send("You Won")
-                break
-
-            Move = Move + 1
-            print(AIPlay)
-            AIPlayedMove = random.choice(AIPlay)
-            if AIPlayedMove == "A1" and A1 == ":white_large_square:":
-                A1 = ":o:"
-                AIPlay.remove("A1")
-            elif AIPlayedMove == "A2" and A2 == ":white_large_square:":
-                A2 = ":o:"
-                AIPlay.remove("A2")
-            elif AIPlayedMove == "A3" and A3 == ":white_large_square:":
-                A3 = ":o:"
-                AIPlay.remove("A3")
-            elif AIPlayedMove == "B1" and B1 == ":white_large_square:":
-                B1 = ":o:"
-                AIPlay.remove("B1")
-            elif AIPlayedMove == "B2" and B2 == ":white_large_square:":
-                B2 = ":o:"
-                AIPlay.remove("B2")
-            elif AIPlayedMove == "B3" and B3 == ":white_large_square:":
-                B3 = ":o:"
-                AIPlay.remove("B3")
-            elif AIPlayedMove == "C1" and C1 == ":white_large_square:":
-                C1 = ":o:"
-                AIPlay.remove("C1")
-            elif AIPlayedMove == "C2" and C2 == ":white_large_square:":
-                C2 = ":o:"
-                AIPlay.remove("C2")
-            elif AIPlayedMove == "C3" and C3 == ":white_large_square:":
-                C3 = ":o:"
-                AIPlay.remove("C3")
-
-            if A1 == ":o:" and A2 == ":o:" and A3 == ":o:" or B1 == ":o:" and B2 == ":o:" and B3 == ":o:" or C1 == ":o:" and C2 == ":o:" and C3 == ":o:" or A1 == ":o:" and B1 == ":o:" and C1 == ":o:" or A2 == ":o:" and B2 == ":o:" and C2 == ":o:" or A3 == ":o:" and B3 == ":o:" and C3 == ":o:" or A1 == ":o:" and B2 == ":o:" and C3 == ":o:" or A3 == ":o:" and B2 == ":o:" and C1 == ":o:" :
-                await channel.send("You Lost")
-                break
-
-
 
 
 
