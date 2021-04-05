@@ -167,7 +167,7 @@ async def game(ctx, subject):
                 Tic_Emb = discord.Embed(
                     title="Tic Tac Toe",
                     colour=discord.Colour.dark_purple(),
-                    description=None
+                    description="Type Quit to quit"
                 )
                 Tic_Emb.add_field(name="Game:",value= A1 + "  |  " + A2 + "  |  " + A3 + "\n" + "+—-—--—-+" + "\n" + B1 + "  |  " + B2 + "  |  " + B3 + "\n" + "+—-—--—-+" + "\n" + C1 + "  |  " + C2 + "  |  " + C3, inline=False)
                 await ctx.send(embed=Tic_Emb)
@@ -205,12 +205,13 @@ async def game(ctx, subject):
                     C3 = ":x:"
                     AIPlay.remove("C3")
                 elif Your_Move.content == "Quit":
+                    await channel.send(f"😭 Sadly, {ctx.author.mention} thinks that I'm some sort of robot who doesn't care about the game. JK, but you have sucessfully quit the game.")
                     break
                 else: 
                     continue
 
                 if A1 == ":x:" and A2 == ":x:" and A3 == ":x:" or B1 == ":x:" and B2 == ":x:" and B3 == ":x:" or C1 == ":x:" and C2 == ":x:" and C3 == ":x:" or A1 == ":x:" and B1 == ":x:" and C1 == ":x:" or A2 == ":x:" and B2 == ":x:" and C2 == ":x:" or A3 == ":x:" and B3 == ":x:" and C3 == ":x:" or A1 == ":x:" and B2 == ":x:" and C3 == ":x:" or A3 == ":x:" and B2 == ":x:" and C1 == ":x:" :
-                    await channel.send("You Won")
+                    await channel.send("Ayyyy you won 🎉!!")
                     break
 
                 Move = Move + 1
