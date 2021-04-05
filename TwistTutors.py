@@ -4,7 +4,6 @@ from discord import colour
 from discord.ext import commands
 import random
 from TwistTutorsToken import token
-import asyncio
 
 client = commands.Bot(command_prefix= ";")
 
