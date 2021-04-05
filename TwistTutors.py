@@ -47,7 +47,7 @@ async def assist(ctx):
     assist_embed.add_field(name="Help", value="`;assist`", inline=True)
     assist_embed.add_field(name="View our website", value="`;web`", inline=True)
     assist_embed.add_field(name="Ask for help", value="`;help`")
-    assist_embed.add_field(name="Play a game", value="`;game`")
+    assist_embed.add_field(name="TicTacToe", value="`;game tictactoe`")
 
     await ctx.send(embed=assist_embed)
 
@@ -59,7 +59,7 @@ async def delete(ctx, amount = 5):
 
 @client.command()
 async def help(ctx):
-    await ctx.channel.send(f"What topic would you like help in, {ctx.author.mention}?", delete_after=10.0)
+    await ctx.channel.send(f"What topic would you like help in,{ctx.author.mention}?")
     def check(m):
         return m.author == ctx.author
     helptopic = await client.wait_for('message', check=check)
@@ -126,21 +126,22 @@ async def help(ctx):
         language_wait_for = await client.wait_for('message', check=check)
         if language_wait_for.content.lower() == "chinese":
             channel = client.get_channel(815742065526702131)
-            await channel.send(f"<@&828284238847279176> A student, {ctx.author.mention} needs help with chinese homework!", delete_after=10.0)
+            await channel.send(f"<@&828284238847279176> A student, {ctx.author.mention} needs help with chinese homework!")
 
 
         elif language_wait_for.content.lower() == "spanish":
             channel = client.get_channel(815742051370401803)
-            await channel.send(f"<@&828285201645830205> A student, {ctx.author.mention} needs help with spanish homework!", delete_after=10.0)
+            await channel.send(f"<@&828285201645830205> A student, {ctx.author.mention} needs help with spanish homework!")
 
         elif language_wait_for.content.lower() == "french":
             channel = client.get_channel(815742120928608316)
-            await channel.send(f"<@&828308062786945065> A student, {ctx.author.mention} needs help with french homework!", delete_after=10.0)
+            await channel.send(f"<@&828308062786945065> A student, {ctx.author.mention} needs help with french homework!")
         #finished up to french
 
 
     elif helptopic.content.lower() == "social studies" or helptopic.content.lower() == "ss" or helptopic.content.lower() == "history":
-        await ctx.send(f"<@&819342428388589568> A student, {ctx.author.mention} needs help with their social studies homework!")
+        channel = client.get_channel(815740451151413248)
+        await channel.send(f"<@&819342428388589568> A student, {ctx.author.mention} needs help with their social studies homework!")
 
 @client.command()
 async def game(ctx, subject):
@@ -204,8 +205,12 @@ async def game(ctx, subject):
                 AIPlay.remove("C3")
             elif Your_Move.content == "Quit":
                 break
-            else:
+            else: 
                 continue
+
+            if A1 == ":x:" and A2 == ":x:" and A3 == ":x:" or B1 == ":x:" and B2 == ":x:" and B3 == ":x:" or C1 == ":x:" and C2 == ":x:" and C3 == ":x:" or A1 == ":x:" and B1 == ":x:" and C1 == ":x:" or A2 == ":x:" and B2 == ":x:" and C2 == ":x:" or A3 == ":x:" and B3 == ":x:" and C3 == ":x:" or A1 == ":x:" and B2 == ":x:" and C3 == ":x:" or A3 == ":x:" and B2 == ":x:" and C1 == ":x:" :
+                await channel.send("You Won")
+                break
 
             Move = Move + 1
             print(AIPlay)
@@ -237,6 +242,11 @@ async def game(ctx, subject):
             elif AIPlayedMove == "C3" and C3 == ":white_large_square:":
                 C3 = ":o:"
                 AIPlay.remove("C3")
+
+            if A1 == ":o:" and A2 == ":o:" and A3 == ":o:" or B1 == ":o:" and B2 == ":o:" and B3 == ":o:" or C1 == ":o:" and C2 == ":o:" and C3 == ":o:" or A1 == ":o:" and B1 == ":o:" and C1 == ":o:" or A2 == ":o:" and B2 == ":o:" and C2 == ":o:" or A3 == ":o:" and B3 == ":o:" and C3 == ":o:" or A1 == ":o:" and B2 == ":o:" and C3 == ":o:" or A3 == ":o:" and B2 == ":o:" and C1 == ":o:" :
+                await channel.send("You Lost")
+                break
+
 
 
 
