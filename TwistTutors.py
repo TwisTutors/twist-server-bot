@@ -32,10 +32,10 @@ async def socials(ctx):
         colour=discord.Colour.dark_purple(),
         description=None
     )
-    socials_embed.add_field(name="__" + "Our Website!" + "__",value="https://twisttutors.tk/")
-    socials_embed.add_field(name="__" + "Our YouTube Channel!" + "__",value="https://www.youtube.com/channel/UCKy8FNfU0eyuSHwVK8i_fdw",inline=False)
-    socials_embed.add_field(name="__" + "Our Twitter!" + "__",value="https://twitter.com/TwistTutors",inline=False)
-    socials_embed.add_field(name="__" + "Our TikTok!" + "__",value="https://www.tiktok.com/@twist_tutors_official?lang=en",inline=False)
+    socials_embed.add_field(name="__" + " 💻Our Website!" + "__",value="https://twisttutors.tk/")
+    socials_embed.add_field(name="__" + "▶ Our YouTube Channel!" + "__",value="https://www.youtube.com/channel/UCKy8FNfU0eyuSHwVK8i_fdw",inline=False)
+    socials_embed.add_field(name="__" + "🕊Our Twitter!" + "__",value="https://twitter.com/TwistTutors",inline=False)
+    socials_embed.add_field(name="__" + "♪Our TikTok!" + "__",value="https://www.tiktok.com/@twist_tutors_official?lang=en",inline=False)
     socials_embed.set_image(url="https://cdn.discordapp.com/attachments/819364098839805993/827520501030715392/twisttutors.png")
     await ctx.send(embed=socials_embed)
 
