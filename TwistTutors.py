@@ -14,16 +14,7 @@ async def on_ready():
     print("Twist Tutors is up and ready!")
     await client.change_presence(status=discord.Status.online, activity=discord.Game(';assist|At your service!'))
 
-@client.command()
-async def web(ctx):
-    website_embed = discord.Embed(
-        title="__Come take a look at our server website!__",
-        colour=discord.Colour.dark_purple(),
-        description=None
-    )
-    website_embed.add_field(name="https://twisttutors.tk/",value="**" + "And as always, have fun learning and exploring!" + "**")
-    website_embed.set_image(url="https://cdn.discordapp.com/attachments/819364098839805993/827520501030715392/twisttutors.png")
-    await ctx.send(embed=website_embed)
+
 
 @client.command()
 async def socials(ctx):
