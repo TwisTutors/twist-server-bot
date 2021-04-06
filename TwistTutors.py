@@ -47,7 +47,7 @@ async def assist(ctx):
         description=None
     )
     assist_embed.add_field(name="Help", value="`;assist`", inline=True)
-    assist_embed.add_field(name="View our website", value="`;web`", inline=True)
+    assist_embed.add_field(name="View our socials", value="`;socials`", inline=True)
     assist_embed.add_field(name="Ask for help", value="`;help`")
     assist_embed.add_field(name="TicTacToe", value="`;game tictactoe`")
 
