@@ -14,9 +14,9 @@ async def on_ready():
     print("Twist Tutors is up and ready!")
     
     while(1):
-        await client.change_presence(status=discord.Status.online, activity=discord.Game('At your service!'))
+        await client.change_presence(status=discord.Status.online, activity=discord.Game(';assist | Let us know how to help you'))
         await asyncio.sleep(4)
-        await client.change_presence(status=discord.Status.online, activity=discord.Game(';assist'))
+        await client.change_presence(status=discord.Status.online, activity=discord.Game(';assist | Dan is a real g'))
         await asyncio.sleep(4)
 
 
