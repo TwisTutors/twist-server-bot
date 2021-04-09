@@ -12,7 +12,12 @@ client.remove_command('help')
 @client.event
 async def on_ready():
     print("Twist Tutors is up and ready!")
-    await client.change_presence(status=discord.Status.online, activity=discord.Game(';assist|At your service!'))
+    
+    while(1):
+        await client.change_presence(status=discord.Status.online, activity=discord.Game('At your service!'))
+        await asyncio.sleep(4)
+        await client.change_presence(status=discord.Status.online, activity=discord.Game(';assist'))
+        await asyncio.sleep(4)
 
 
 
