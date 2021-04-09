@@ -55,6 +55,10 @@ async def delete(ctx, amount = 5):
     await ctx.channel.purge(limit=purge_amount)
 
 @client.command()
+async def mom(ctx):
+    await ctx.channel.send("Ur mom gay")
+
+@client.command()
 async def help(ctx):
     await ctx.channel.send(f"What topic would you like help in,{ctx.author.mention}?")
     def check(m):
