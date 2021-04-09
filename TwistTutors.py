@@ -140,6 +140,42 @@ async def help(ctx):
         channel = client.get_channel(815740451151413248)
         await channel.send(f"<@&819342428388589568> A student, {ctx.author.mention} needs help with their social studies homework!")
 
+    elif helptopic.content.lower() == "science" or helptopic.content.lower() == "sci":
+        await ctx.send(f"{ctx.author.mention}, specifically what type of science do you need help with?\n```ARM\nEarth Science```\n```YAML\nGeology```\n```ELM\nLiving Environment```\n```ARM\nChemistry```\n```YAML\nBiology```\n```ELM\nPhysics```")
+
+        def check(p):
+            return p.author == ctx.author
+
+        specific_sci = await client.wait_for('message', check=check)
+
+        if specific_sci.content.lower() == "earthsci" or specific_sci.content.lower() == "earth-sci" or specific_sci.content.lower() == "earth science":
+            channel = client.get_channel(815741782120726609)
+            await channel.send(f"<@&815786846629265429> A student, {ctx.author.mention} needs help with **Earth Science**!")
+
+        elif specific_sci.content.lower() == "geology":
+            channel = client.get_channel(815741809727766539)
+            await channel.send(f"<@&815786846629265429> A student, {ctx.author.mention} needs help with **Geology**!")
+
+        elif specific_sci.content.lower() == "living environment" or specific_sci.content.lower() == "living" or specific_sci.content.lower() == "environment" or specific_sci.content.lower() == "livingenvir":
+            channel = client.get_channel(815741834781261836)
+            await channel.send(f"<@&815786846629265429> A student, {ctx.author.mention} needs help with **Living Environment**!")
+
+        elif specific_sci.content.lower() == "chemistry" or specific_sci.content.lower() == "chem":
+            channel = client.get_channel(815741858813706300)
+            await channel.send(f"<@&815786846629265429> A student, {ctx.author.mention} needs help with **Chemistry**!")
+
+        elif specific_sci.content.lower() == "bio" or specific_sci.content.lower() == "biology":
+            channel = client.get_channel(815741873276190720)
+            await channel.send(f"<@&815786846629265429> A student, {ctx.author.mention} needs help with **Biology**!")
+
+        elif specific_sci.content.lower() == "physics" or specific_sci.content.lower() == "phy":
+            channel = client.get_channel(815741887565922304)
+            await channel.send(f"<@&815786846629265429> A student, {ctx.author.mention} needs help with **Physics**!")
+
+
+
+
+
 @client.command()
 async def game(ctx, subject):
     if subject.lower() == "tictactoe":
