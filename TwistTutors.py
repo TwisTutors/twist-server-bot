@@ -27,9 +27,9 @@ async def socials(ctx):
     socials_embed.add_field(name="__" + "▶ Our YouTube Channel!" + "__",value="https://www.youtube.com/channel/UCKy8FNfU0eyuSHwVK8i_fdw",inline=False)
     socials_embed.add_field(name="__" + "🕊Our Twitter!" + "__",value="https://twitter.com/TwistTutors",inline=False)
     socials_embed.add_field(name="__" + "♪Our TikTok!" + "__",value="https://www.tiktok.com/@twist_tutors_official?lang=en",inline=False)
-    socials_embed.add_field(name="__" + "📷Our Instagram!" + "__",value="hhttps://www.instagram.com/twist_tutors/",inline=False)
+    socials_embed.add_field(name="__" + "📷Our Instagram!" + "__",value="https://www.instagram.com/twist_tutors/",inline=False)
 
-    socials_embed.set_image(url="https://cdn.discordapp.com/attachments/819364098839805993/827520501030715392/twisttutors.png")
+    socials_embed.set_image(url="https://cdn.discordapp.com/attachments/830072392734736404/830091515103543296/Screen_Shot_2021-04-07_at_11.01.39_AM.png")
     await ctx.send(embed=socials_embed)
 
 @client.command()
