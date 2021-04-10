@@ -10,9 +10,9 @@ client = commands.Bot(command_prefix= ";")
 client.remove_command('help')
 
 @client.event
-async def on_ready(ctx):
+async def on_ready(guild):
     print("Twist Tutors is up and ready!")
-    client.change_presence(status=discord.Status.online,activity=discord.Game(f"Watching over our {ctx.guild.member_count}"))
+    client.change_presence(status=discord.Status.online,activity=discord.Game(f"Watching over our {guild.member_count}"))
     
 #client.change_presence(status=discord.Status.online, activity=discord.Game(';assist | Let us know how to help you'))
 
