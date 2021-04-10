@@ -13,9 +13,12 @@ client.remove_command('help')
 async def on_ready():
     print("Twist Tutors is up and ready!")
     a = client.get_guild(815737997923188778)
-    await client.change_presence(status=discord.Status.online, activity=discord.Game(f"Watching over {a.member_count} bright students!"))
+    while(1):
+        await client.change_presence(status=discord.Status.online, activity=discord.Game(f"Watching over {a.member_count} bright students!"))
+        await asyncio.wait(3)
     
-#client.change_presence(status=discord.Status.online, activity=discord.Game(';assist | Let us know how to help you'))
+# = client.get_guild(815737997923188778)
+    #await client.change_presence(status=discord.Status.online, activity=discord.Game(f"Watching over {a.member_count} bright students!"))
 
 
 
