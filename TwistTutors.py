@@ -17,8 +17,7 @@ async def on_ready():
         await client.change_presence(status=discord.Status.online, activity=discord.Game(f"Watching over {a.member_count} bright students!"))
         await asyncio.wait(3)
     
-# = client.get_guild(815737997923188778)
-    #await client.change_presence(status=discord.Status.online, activity=discord.Game(f"Watching over {a.member_count} bright students!"))
+
 
 
 
