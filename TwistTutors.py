@@ -15,7 +15,7 @@ async def on_ready():
     a = client.get_guild(815737997923188778)
     while(1):
         await client.change_presence(status=discord.Status.online, activity=discord.Game(f"Watching over {a.member_count} bright students!"))
-        await time.sleep(5)
+        await asyncio.sleep(5)
     
 
 
