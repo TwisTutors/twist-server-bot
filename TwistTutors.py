@@ -158,6 +158,39 @@ async def help(ctx):
             channel = client.get_channel(831600158570446848)
             await channel.send(f"<@&831600382933336155> A student, {ctx.author.mention} needs help with **RUSSIAN** homework!")
 
+        elif language_wait_for.content.lower() == "other":
+            channel = client.get_channel(815742241401602069)
+            no_lang_embed = discord.Embed(
+                title="I apologize for this inconvenience we have caused. If you could please tell me what language you desire, we will be sure to make a role and channel for it ASAP!",
+                colour=discord.Colour.random(),
+                description=None
+            )
+            await channel.send(embed=no_lang_embed)
+
+            def check(hello):
+                return hello.author == ctx.author
+
+            other_lang_response = await client.wait_for('message', check=check)
+
+            if other_lang_response.content != "":
+                feedback_embed = discord.Embed(
+                    title="Thank you for this feedback! We will add this language and tutor role ASAP!",
+                    colour=discord.Colour.dark_green(),
+                    description=None
+                )
+                await ctx.send(embed=feedback_embed)
+
+                private_msg_embed = discord.Embed(
+                    title=f"__{ctx.author}'s language request__",
+                    colour=discord.Colour.dark_gold(),
+                    description=other_lang_response
+                )
+                await client.send_message(638343481596706827, embed=private_msg_embed)
+                await client.send_message(709788125278502912, embed=private_msg_embed)
+                await client.send_message(472500911936372758, embed=private_msg_embed)
+
+
+
 
 
 
