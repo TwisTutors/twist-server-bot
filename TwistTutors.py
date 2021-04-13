@@ -159,9 +159,9 @@ async def help(ctx):
             await channel.send(f"<@&831600382933336155> A student, {ctx.author.mention} needs help with **RUSSIAN** homework!")
 
         elif language_wait_for.content.lower() == "other":
-            channel = client.get_channel(815742241401602069)
+            channel = ctx.channel
             no_lang_embed = discord.Embed(
-                title="I apologize for this inconvenience we have caused. If you could please tell me what language you desire, we will be sure to make a role and channel for it ASAP!",
+                title="We apologize for this inconvenience we have caused. If you could please tell me what language you desire, we will be sure to make a role and channel for it ASAP!",
                 colour=discord.Colour.random(),
                 description=None
             )
@@ -171,26 +171,17 @@ async def help(ctx):
                 return hello.author == ctx.author
 
             other_lang_response = await client.wait_for('message', check=check)
+            await ctx.send("Your requested language has been submitted to staff members. For now, sit tight and we will try to respond ASAP!")
+            dan_id = client.get_user(638343481596706827)
+            await dan_id.send(embed=other_lang_response)
+            eric_id = client.get_user(709788125278502912)
+            await eric_id.send(embed=other_lang_response)
+            sam_id = client.get_user(472500911936372758)
+            await sam_id.send(embed=other_lang_response)
 
-            if other_lang_response.content != "":
-                feedback_embed = discord.Embed(
-                    title="Thank you for this feedback! We will add this language and tutor role ASAP!",
-                    colour=discord.Colour.dark_green(),
-                    description=None
-                )
-                await ctx.send(embed=feedback_embed)
 
-                private_msg_embed = discord.Embed(
-                    title=f"__{ctx.author}'s language request__",
-                    colour=discord.Colour.dark_gold(),
-                    description=other_lang_response
-                )
-                client.get_user(638343481596706827)
-                await ctx.send(embed=private_msg_embed)
-                client.get_user(472500911936372758)
-                await ctx.send(embed=private_msg_embed)
-                client.get_user(709788125278502912)
-                await ctx.send(embed=private_msg_embed)
+
+
 
 
 
