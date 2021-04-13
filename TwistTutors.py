@@ -185,9 +185,12 @@ async def help(ctx):
                     colour=discord.Colour.dark_gold(),
                     description=other_lang_response
                 )
-                await client.send_message(638343481596706827, embed=private_msg_embed)
-                await client.send_message(709788125278502912, embed=private_msg_embed)
-                await client.send_message(472500911936372758, embed=private_msg_embed)
+                client.get_user(638343481596706827)
+                await ctx.send(embed=private_msg_embed)
+                client.get_user(472500911936372758)
+                await ctx.send(embed=private_msg_embed)
+                client.get_user(709788125278502912)
+                await ctx.send(embed=private_msg_embed)
 
 
 
