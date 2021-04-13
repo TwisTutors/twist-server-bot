@@ -131,29 +131,32 @@ async def help(ctx):
         language_wait_for = await client.wait_for('message', check=check)
         if language_wait_for.content.lower() == "chinese":
             channel = client.get_channel(815742065526702131)
-            await channel.send(f"<@&828284238847279176> A student, {ctx.author.mention} needs help with **chinese** homework!")
+            await channel.send(f"<@&828284238847279176> A student, {ctx.author.mention} needs help with **CHINESE** homework!")
 
 
         elif language_wait_for.content.lower() == "spanish" or language_wait_for.content.lower() == "espanol":
             channel = client.get_channel(815742051370401803)
-            await channel.send(f"<@&828285201645830205> A student, {ctx.author.mention} needs help with **spanish** homework!")
+            await channel.send(f"<@&828285201645830205> A student, {ctx.author.mention} needs help with **SPANISh** homework!")
 
         elif language_wait_for.content.lower() == "french":
             channel = client.get_channel(815742120928608316)
-            await channel.send(f"<@&828308062786945065> A student, {ctx.author.mention} needs help with **french** homework!")
+            await channel.send(f"<@&828308062786945065> A student, {ctx.author.mention} needs help with **FRENCH** homework!")
 
         elif language_wait_for.content.lower() == "latin":
             channel = client.get_channel(815742145716813824)
-            await channel.send(f"<@&828308062786945065> A student, {ctx.author.mention} needs help with **latin** homework!")
+            await channel.send(f"<@&831598641322917919> A student, {ctx.author.mention} needs help with **LATIN** homework!")
 
         elif language_wait_for.content.lower() == "japanese" or language_wait_for.content.lower() == "japan":
             channel = client.get_channel(815742168852725760)
-            await channel.send(f"<@&828308062786945065> A student, {ctx.author.mention} needs help with **japanese** homework!")
+            await channel.send(f"<@&831599128906956850> A student, {ctx.author.mention} needs help with **JAPANESE** homework!")
 
         elif language_wait_for.content.lower() == "korean":
             channel = client.get_channel(815742185491923024)
-            await channel.send(f"<@&828308062786945065> A student, {ctx.author.mention} needs help with **korean** homework!")
+            await channel.send(f"<@&831599823752527883> A student, {ctx.author.mention} needs help with **KOREAN** homework!")
 
+        elif language_wait_for.content.lower() == "russian":
+            channel = client.get_channel(831600158570446848)
+            await channel.send(f"<@&831600382933336155> A student, {ctx.author.mention} needs help with **RUSSIAN** homework!")
 
 
 
