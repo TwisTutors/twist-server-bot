@@ -149,7 +149,7 @@ async def help(ctx):
         await channel.send(f"<@&819342428388589568> A student, {ctx.author.mention} needs help with their social studies homework!")
 
     elif helptopic.content.lower() == "science" or helptopic.content.lower() == "sci":
-        await ctx.send(f"{ctx.author.mention}, specifically what type of science do you need help with?\n```ARM\nEarth Science```\n```YAML\nGeology```\n```ELM\nLiving Environment```\n```ARM\nChemistry```\n```YAML\nBiology```\n```ELM\nPhysics```")
+        await ctx.send(f"{ctx.author.mention}, specifically what type of science do you need help with?\n```ELM\nEarth Science```\n```YAML\nGeology```\n```ELM\nLiving Environment```\n```ARM\nChemistry```\n```YAML\nBiology```\n```ELM\nPhysics```")
 
         def check(p):
             return p.author == ctx.author
