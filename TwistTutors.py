@@ -298,6 +298,5 @@ async def game(ctx, subject):
 
 
 
-#testing
 
 client.run(token)
