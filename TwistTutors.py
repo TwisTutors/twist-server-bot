@@ -5,7 +5,11 @@ from discord.ext import commands
 import random
 from TwistTutorsToken import token
 
-client = commands.Bot(command_prefix= ";")
+intents = discord.Intents.default()
+intents.members = True
+
+client = commands.Bot(command_prefix= ";", intents=intents)
+
 
 client.remove_command('help')
 
@@ -171,13 +175,18 @@ async def help(ctx):
                 return hello.author == ctx.author
 
             other_lang_response = await client.wait_for('message', check=check)
+            other_lang_embed = discord.Embed(
+                title=f"__{ctx.author}'s language request__",
+                colour=discord.Colour.red(),
+                description=other_lang_response.content
+            )
             await ctx.send("Your requested language has been submitted to staff members. For now, sit tight and we will try to respond ASAP!")
             dan_id = client.get_user(638343481596706827)
-            await dan_id.send(embed=other_lang_response)
+            await dan_id.send(embed=other_lang_embed)
             eric_id = client.get_user(709788125278502912)
-            await eric_id.send(embed=other_lang_response)
+            await eric_id.send(embed=other_lang_embed)
             sam_id = client.get_user(472500911936372758)
-            await sam_id.send(embed=other_lang_response)
+            await sam_id.send(embed=other_lang_embed)
 
 
 
