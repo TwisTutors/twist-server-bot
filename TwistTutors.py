@@ -127,7 +127,7 @@ async def help(ctx):
 
 
     elif helptopic.content.lower() == "language" or helptopic.content.lower() == "lang" or helptopic.content.lower() == "l":
-        await ctx.send(f"{ctx.author.mention}, what language do you need help in?", delete_after=7.5)
+        await ctx.send(f"{ctx.author.mention}, what language do you need help in?\n```ARM\nCHINESE```\n```YAML\nSPANISH```\n```ELM\nFRENCH```\n```ARM\nLATIN```\n```YAML\nJAPANESE```\n```ELM\nKOREAN```\n```ARM\nRUSSIAN```\n```YAML\nOTHER```", delete_after=7.5)
 
         def check(m):
             return m.author == ctx.author
