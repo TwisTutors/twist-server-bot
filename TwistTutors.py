@@ -424,12 +424,12 @@ async def open_profile(member):
     else:
         users[str(member.id)] = {}
 
-    with open("thankdata.json.json", "w") as f:
+    with open("thankdata.json", "w") as f:
         json.dump(users, f)
     return True
 
 async def get_player_data():
-    with open("thankdata.json.json", "r") as f:
+    with open("thankdata.json", "r") as f:
         users = json.load(f)
     return users
 
