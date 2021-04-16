@@ -3,7 +3,13 @@ from discord import message
 from discord import colour
 from discord.ext import commands
 import random
+import json
+import os
 from TwistTutorsToken import token
+
+
+
+os.chdir(f"C:\Users\jinge\Documents\GitHub\twist-server-bot")
 
 intents = discord.Intents.default()
 intents.members = True
@@ -392,7 +398,40 @@ async def game(ctx, subject):
                 await channel.send("It was a tie")
                 break
 
+@client.command()
+async def stats(ctx, member : discord.Member = None):
+    member = ctx.author or member
 
+    await open_profile(member)
+
+    users = await get_player_data()
+
+    thanks_amt = users[str(member.id)]["Thanks"]
+
+    stats_embed = discord.Embed(
+        title=f"**{ctx.author}'s stats**",
+        colour=discord.Colour.dark_gold(),
+        description=None
+    )
+    stats_embed.add_field(name="__Thanks__", value=thanks_amt)
+
+async def open_profile(member):
+
+    users = await get_player_data()
+
+    if str(member.id) in users:
+        return False
+    else:
+        users[str(member.id)] = {}
+
+    with open("thankdata.json.json", "w") as f:
+        json.dump(users, f)
+    return True
+
+async def get_player_data():
+    with open("thankdata.json.json", "r") as f:
+        users = json.load(f)
+    return users
 
 
 
