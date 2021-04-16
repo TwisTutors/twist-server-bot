@@ -423,8 +423,8 @@ async def open_profile(member):
     if str(member.id) in users:
         return False
     else:
-        users[str(member.id)] = {}
-        users[str(member.id)]["Thanks"] = 0
+        users[str(member)] = {}
+        users[str(member)]["Thanks"] = 0
 
     with open("thankdata.json", "w") as f:
         json.dump(users, f)
