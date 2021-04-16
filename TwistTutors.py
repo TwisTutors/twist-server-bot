@@ -472,7 +472,7 @@ async def thank(ctx, member:discord.Member):
             users[str(member.id)]["Thanks"] += 1
     else:
         no_thank_self = discord.Embed(
-            title="YOU CAN'T THANK YOUSELF!!",
+            title="YOU CAN'T THANK YOURSELF!!",
             colour=discord.Colour.dark_orange(),
             description=None
         )
