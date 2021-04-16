@@ -9,7 +9,7 @@ from TwistTutorsToken import token
 
 
 
-os.chdir(f"C:\Users\jinge\Documents\GitHub\twist-server-bot")
+os.chdir(r"C:\Users\jinge\Documents\GitHub\twist-server-bot")
 
 intents = discord.Intents.default()
 intents.members = True
