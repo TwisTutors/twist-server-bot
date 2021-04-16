@@ -73,6 +73,48 @@ async def help(ctx):
     def check(m):
         return m.author == ctx.author
     helptopic = await client.wait_for('message', check=check)
+
+    if helptopic.content.lower() == "coding" or helptopic.content.lower() == "code":
+        await ctx.send(f"{ctx.author.mention}, what language do you need help with?\n```ARM\nPYTHON```\n```YAML\nJAVASCRIPT```\n```ELM\nJAVA```\n```ARM\nC```\n```YAML\nHTML```\n```ELM\nOTHER```")
+
+        def check(code):
+            return code.author == ctx.author
+
+        specific_code = await client.wait_for('message', check=check)
+        if specific_code.content.lower() == "python" or specific_code.content.lower() == "py":
+            channel = client.get_channel(816492686076149771)
+            await channel.send(f"<@&816485437454549033> A student, {ctx.author.mention} requires immediate **PYTHON** help!")
+
+        elif specific_code.content.lower() == "js" or specific_code.content.lower() == "javascript":
+            channel = client.get_channel(816492703708872705)
+            await channel.send(f"<@&816485437454549033> A student {ctx.author.mention} requires immediate **JAVASCRIPT** help!")
+
+        elif specific_code.content.lower() == "java":
+            channel = client.get_channel(816492714253484042)
+            await channel.send(f"<@&816485437454549033> A student {ctx.author.mention} requires immediate **JAVA** help!")
+
+        elif specific_code.content.lower() == "c":
+            channel = client.get_channel(816492724794425364)
+            await channel.send(f"<@&816485437454549033> A student {ctx.author.mention} requires immediate **C** help!")
+
+        elif specific_code.content.lower() == "html":
+            channel = client.get_channel(816492749767180328)
+            await channel.send(f"<@&816485437454549033> A student {ctx.author.mention} requires immediate **HTML** help!")
+
+        elif specific_code.content.lower() == "other":
+            channel = client.get_channel(828331966201856090)
+            await channel.send(f"<@&816485437454549033> A student {ctx.author.mention} requires help in another language!")
+
+        else:
+            await ctx.send("I'm sorry I didn't quite catch that...Please run the ;help command again!")
+
+
+
+
+
+
+
+
     if helptopic.content.lower() == "math" or helptopic.content.lower() == "m":
         await ctx.send(f"{ctx.author.mention}, specifically what type of math do you need help with?")
 
