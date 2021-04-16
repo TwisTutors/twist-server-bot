@@ -400,7 +400,7 @@ async def game(ctx, subject):
 
 @client.command()
 async def stats(ctx, member : discord.Member = None):
-    member = ctx.author or member
+    member = member or ctx.author
 
     await open_profile(member)
 
@@ -409,7 +409,7 @@ async def stats(ctx, member : discord.Member = None):
     thanks_amt = users[str(member.id)]["Thanks"]
 
     stats_embed = discord.Embed(
-        title=f"**{ctx.author}'s stats**",
+        title=f"**{member}'s stats**",
         colour=discord.Colour.dark_gold(),
         description=None
     )
@@ -423,8 +423,8 @@ async def open_profile(member):
     if str(member.id) in users:
         return False
     else:
-        users[str(member)] = {}
-        users[str(member)]["Thanks"] = 0
+        users[str(member.id)] = {}
+        users[str(member.id)]["Thanks"] = 0
 
     with open("thankdata.json", "w") as f:
         json.dump(users, f)
@@ -434,6 +434,34 @@ async def get_player_data():
     with open("thankdata.json", "r") as f:
         users = json.load(f)
     return users
+
+
+@client.command()
+async def thank(ctx, member:discord.Member, reason):
+    member = member
+
+    await open_profile(member)
+
+    users = await get_player_data()
+
+    users[str(member.id)]["Thanks"] += 1
+
+    thanked_embed = discord.Embed(
+        title=f"{ctx.author} thanked {member} for helping with %s" % (reason),
+        colour=discord.Colour.dark_purple(),
+        description=None
+    )
+    await ctx.send(embed=thanked_embed)
+
+    with open("thankdata.json", "w") as f:
+        json.dump(users, f)
+    return True
+
+
+
+
+
+
 
 
 
