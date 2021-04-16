@@ -414,6 +414,7 @@ async def stats(ctx, member : discord.Member = None):
         description=None
     )
     stats_embed.add_field(name="__Thanks__", value=thanks_amt)
+    await ctx.send(embed=stats_embed)
 
 async def open_profile(member):
 
