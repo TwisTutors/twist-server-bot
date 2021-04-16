@@ -437,21 +437,48 @@ async def get_player_data():
 
 
 @client.command()
-async def thank(ctx, member:discord.Member, reason):
+async def thank(ctx, member:discord.Member):
     member = member
 
     await open_profile(member)
 
     users = await get_player_data()
 
-    users[str(member.id)]["Thanks"] += 1
+    if ctx.author != member:
+        reason_for_thanks = discord.Embed(
+            title=f"How did {member} help you?",
+            colour=discord.Colour.teal(),
+            description=None
+        )
+        await ctx.send(embed=reason_for_thanks)
 
-    thanked_embed = discord.Embed(
-        title=f"{ctx.author} thanked {member} for helping with %s" % (reason),
-        colour=discord.Colour.dark_purple(),
-        description=None
-    )
-    await ctx.send(embed=thanked_embed)
+        def check(y):
+            return y.author == ctx.author
+
+
+
+        reason_for_thanks_response = await client.wait_for('message', check=check)
+
+        if reason_for_thanks_response != "":
+
+
+            response = discord.Embed(
+                title="Your gratitude has been noted!",
+                colour=discord.Colour.dark_blue(),
+                description=None
+            )
+
+            await ctx.send(embed=response)
+            users[str(member.id)]["Thanks"] += 1
+    else:
+        no_thank_self = discord.Embed(
+            title="YOU CAN'T THANK YOUSELF!!",
+            colour=discord.Colour.dark_orange(),
+            description=None
+        )
+        await ctx.send(embed=no_thank_self)
+
+
 
     with open("thankdata.json", "w") as f:
         json.dump(users, f)
