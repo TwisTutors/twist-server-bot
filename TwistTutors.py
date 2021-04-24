@@ -6,10 +6,15 @@ import random
 import json
 import os
 from TwistTutorsToken import token
+import firebase_admin
+from firebase_admin import credentials, firestore
 
+cred = credentials.Certificate("login-eae5d-firebase-adminsdk-wn7lx-5b8d15ecba.json")
+firebase_admin.initialize_app(cred)
 
+firestore_db = firestore.client()
 
-os.chdir(r"C:\Users\jinge\Documents\GitHub\twist-server-bot")
+os.chdir(r"/twist-server-bot")
 
 intents = discord.Intents.default()
 intents.members = True
@@ -23,7 +28,14 @@ client.remove_command('help')
 async def on_ready():
     print("Twist Tutors is up and ready!")
     while(1):
+        
+
+        db = firestore.client()
+
+        doc_ref = firestore_db.collection(u'Discord').document(u'Count')
+
         a = client.get_guild(815737997923188778)
+        doc_ref.update({"users": a.member_count })
         await client.change_presence(status=discord.Status.online, activity=discord.Game(f"Watching over {a.member_count} bright students!"))
         await asyncio.sleep(5)
     
