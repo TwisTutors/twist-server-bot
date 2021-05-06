@@ -6,15 +6,11 @@ import random
 import json
 import os
 from TwistTutorsToken import token
-import firebase_admin
-from firebase_admin import credentials, firestore
 
-cred = credentials.Certificate("login-eae5d-firebase-adminsdk-wn7lx-5b8d15ecba.json")
-firebase_admin.initialize_app(cred)
 
-firestore_db = firestore.client()
 
-os.chdir(r"/twist-server-bot")
+
+os.chdir(r"C:\Users\jinge\Documents\GitHub\twist-server-bot")
 
 intents = discord.Intents.default()
 intents.members = True
@@ -28,14 +24,8 @@ client.remove_command('help')
 async def on_ready():
     print("Twist Tutors is up and ready!")
     while(1):
-        
-
-        db = firestore.client()
-
-        doc_ref = firestore_db.collection(u'Discord').document(u'Count')
 
         a = client.get_guild(815737997923188778)
-        doc_ref.update({"users": a.member_count })
         await client.change_presence(status=discord.Status.online, activity=discord.Game(f"Watching over {a.member_count} bright students!"))
         await asyncio.sleep(5)
     
@@ -81,13 +71,11 @@ async def delete(ctx, amount = 5):
     purge_amount = amount + 1
     await ctx.channel.purge(limit=purge_amount)
 
-@client.command()
-async def mom(ctx):
-    await ctx.channel.send("Ur mom gay")
+
 
 @client.command()
 async def help(ctx):
-    await ctx.channel.send(f"What topic would you like help in,{ctx.author.mention}?\n```ARM\nMath```\n```YAML\nELA```\n```ELM\nSocial Studies```\n```ARM\nScience```\n```YAML\nLanguage```\n```ELM\nCoding```\n```ARM\nArt```")
+    await ctx.channel.send(f"What topic would you like help in, {ctx.author.mention}?\n```ARM\nMath```\n```YAML\nELA```\n```ELM\nSocial Studies```\n```ARM\nScience```\n```YAML\nLanguage```\n```ELM\nCoding```\n```ARM\nArt```")
     def check(m):
         return m.author == ctx.author
     helptopic = await client.wait_for('message', check=check)
@@ -134,7 +122,7 @@ async def help(ctx):
 
 
     if helptopic.content.lower() == "math" or helptopic.content.lower() == "m":
-        await ctx.send(f"{ctx.author.mention}, specifically what type of math do you need help with?")
+        await ctx.send(f"{ctx.author.mention}, specifically what type of math do you need help with?\n```ARM\nBasic Math```\n```YAML\nPre-Algebra```\n```ELM\nAlgebra-1```\n```ARM\nGeometry```\n```YAML\nAlgebra-2```\n```ELM\nPre-Calc```\n```ARM\nCalculus```\n```ARM\nLinear-Algebra```\n```YAML\nStatistics```")
 
         def check(s):
             return s.author == ctx.author
@@ -180,7 +168,21 @@ async def help(ctx):
 
 
     elif helptopic.content.lower() == "ela" or helptopic.content.lower() == "e":
-        await ctx.send(f"<@&815785109473984513> A student, {ctx.author.mention} needs help with their ELA work!")
+        await ctx.send(f"{ctx.author.mention}, what part of ELA do you need help with?\n```ARM\nWriting```\n```YAML\nReading```")
+
+        def check(ela):
+            return ela.author == ctx.author
+
+        specific_ela = await client.wait_for('message', check=check)
+
+        if specific_ela.content.lower() == "writing" or specific_ela.content.lower() == "write":
+            channel = client.get_channel(815741586549112862)
+            await channel.send(f"<@&815785109473984513>! {ctx.author.mention} needs help with writing work!")
+
+        if specific_ela.content.lower() == "reading" or specific_ela.content.lower() == "comp":
+            channel = client.get_channel(815741609378316289)
+            await channel.send(f"<@&815785109473984513>! {ctx.author.mention} needs help with reading work!")
+
 
 
 
