@@ -263,7 +263,7 @@ async def help(ctx):
 
 
     elif helptopic.content.lower() == "social studies" or helptopic.content.lower() == "ss" or helptopic.content.lower() == "social":
-        await ctx.send(f"{ctx.author.mention}, what type of social studies do you need help with?\n```ARM\nHistory```\n```YAML\n")
+        await ctx.send(f"{ctx.author.mention}, what type of social studies do you need help with?\n```ARM\nHistory```\n```YAML\nGovernment```\n```ELM\nGeography```")
 
         def check(ss):
             return ss.author == ctx.author
