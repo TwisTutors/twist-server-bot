@@ -262,9 +262,29 @@ async def help(ctx):
 
 
 
-    elif helptopic.content.lower() == "social studies" or helptopic.content.lower() == "ss" or helptopic.content.lower() == "history":
-        channel = client.get_channel(815740451151413248)
-        await channel.send(f"<@&819342428388589568> A student, {ctx.author.mention} needs help with their social studies homework!")
+    elif helptopic.content.lower() == "social studies" or helptopic.content.lower() == "ss" or helptopic.content.lower() == "social":
+        await ctx.send(f"{ctx.author.mention}, what type of social studies do you need help with?\n```ARM\nHistory```\n```YAML\n")
+
+        def check(ss):
+            return ss.author == ctx.author
+
+        specific_ss = await client.wait_for('message', check=check)
+
+        if specific_ss.content.lower() == "history":
+            channel = client.get_channel(815740451151413248)
+            await channel.send(f"<@&819342428388589568>! {ctx.author.mention} needs help with **HISTORY** homework!")
+
+        elif specific_ss.content.lower() == "gov" or specific_ss.content.lower() == "government":
+            channel = client.get_channel(815740640646266882)
+            await channel.send(f"<@&819342428388589568>! {ctx.author.mention} needs help with **GOVERNMENT** homework!")
+
+        elif specific_ss.content.lower() == "geography":
+            channel = client.get_channel(815740717258244197)
+            await channel.send(f"<@&819342428388589568>! {ctx.author.mention} needs help with **GEOGRAPHY** homework!")
+
+        else:
+            await ctx.send(f"{ctx.author.mention} I do not quite comprehend. Please do\n```\n;help\n```\n and try again!")
+
 
     elif helptopic.content.lower() == "science" or helptopic.content.lower() == "sci":
         await ctx.send(f"{ctx.author.mention}, specifically what type of science do you need help with?\n```ELM\nEarth Science```\n```YAML\nGeology```\n```ELM\nLiving Environment```\n```ARM\nChemistry```\n```YAML\nBiology```\n```ELM\nPhysics```")
