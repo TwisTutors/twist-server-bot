@@ -39,7 +39,7 @@ async def on_member_join(member):
         description=None
     )
     welcome_embed.set_image(url="https://cdn.discordapp.com/attachments/830072392734736404/830091902992252948/Twist-v2-PixTeller.gif")
-    await channel.send(welcome_embed)
+    await channel.send(embed=welcome_embed)
 
 
 
