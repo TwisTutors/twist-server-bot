@@ -30,6 +30,16 @@ async def on_ready():
         await asyncio.sleep(5)
     
 
+@client.event
+async def on_member_join(member):
+    channel = client.get_channel(815737999228796960)
+    welcome_embed = discord.Embed(
+        title=f"{member.mention} has landed in our server! Lets all give a warm welcome!",
+        colour=discord.Colour.dark_purple(),
+        description=None
+    )
+    welcome_embed.set_image(url="https://cdn.discordapp.com/attachments/830072392734736404/830091902992252948/Twist-v2-PixTeller.gif")
+    await channel.send(welcome_embed)
 
 
 
