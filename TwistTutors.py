@@ -529,7 +529,7 @@ async def thank(ctx, member:discord.Member):
     return True
 
 @client.command()
-async def search(ctx, *args):
+async def search(ctx, *, args):
     list_of_lessons = {
         "surface area" : "https://youtube.com/playlist?list=PLwn_zWLzIz3Jq0Lj_QF772S853vGns2SN"
     }
@@ -539,6 +539,7 @@ async def search(ctx, *args):
             colour = discord.Colour.orange()
         )
         lesson_embed.add_field(url=list_of_lessons[args.content.lower()])
+        await ctx.send(embed=lesson_embed)
 
                           
 
