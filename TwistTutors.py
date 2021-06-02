@@ -528,7 +528,19 @@ async def thank(ctx, member:discord.Member):
         json.dump(users, f)
     return True
 
+@client.command()
+async def search(ctx, *args):
+    list_of_lessons = {
+        "surface area" : "https://youtube.com/playlist?list=PLwn_zWLzIz3Jq0Lj_QF772S853vGns2SN"
+    }
+    if args.content.lower() in list_of_lessons:
+        lesson_embed = discord.Embed(
+            title = "Here is a lesson/playlist related to your request!",
+            colour = discord.Colour.orange()
+        )
+        lesson_embed.add_field(url=list_of_lessons[args.content.lower()])
 
+                          
 
 
 
