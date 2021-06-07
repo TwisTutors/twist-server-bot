@@ -32,13 +32,13 @@ async def on_ready():
 
 @client.event
 async def on_member_join(member):
-    channel = client.get_channel(815737999228796960)
+    channel = client.get_channel(815742435422502972)
     welcome_embed = discord.Embed(
-        title=f"{member.mention} has landed in our server! Lets all give a warm welcome!",
+        title=f"{member.mention} has landed in our server! If you have any questions, please ask us in #general or go to the appropriate channel and mention the subject tutor. Have a nice day!"
         colour=discord.Colour.dark_purple(),
         description=None
     )
-    welcome_embed.set_image(url="https://cdn.discordapp.com/attachments/830072392734736404/830091902992252948/Twist-v2-PixTeller.gif")
+    #welcome_embed.set_image(url="https://cdn.discordapp.com/attachments/830072392734736404/830091902992252948/Twist-v2-PixTeller.gif")
     await channel.send(embed=welcome_embed)
 
 
